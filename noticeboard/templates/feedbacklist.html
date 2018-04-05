@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+    <h3>
+        <img src="{% static 'images/note.png' %}" style="width:50px" />
+        Feedback List
+    </h3>
+{% endblock title %}
+
+{% block content %}
+    <p>
+        <a href="{% url 'create' %}">+ Create New</a>
+    </p>
+
+    <table class="table">
+        <tr><th>Id</th><th>Name</th></tr>
+        {% for item in feedbacks %}
+            <tr>
+                <td>
+                    <a href="{% url 'edit' id=item.id %}">{{ item.id }}</a>
+                </td>
+                <td>{{ item.product }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}

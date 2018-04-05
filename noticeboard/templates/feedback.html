@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}
+    <h3>
+        Your Feedback
+    </h3>
+{% endblock title %}
+
+{% block content %}
+    <p>
+        <a href="{% url 'list' %}">Goto List</a>
+    </p>
+
+    <div>
+        <form method="POST">
+            {% csrf_token %}
+            <table class="table">
+                {{ form.as_table }}
+            </table>
+            <button type="submit">저장</button>
+        </form>
+   </div>
+
+{% endblock content %}
