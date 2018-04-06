@@ -3,4 +3,4 @@
 *.iml
 .idea/*
 .idea/workspace.xml
-.pytest_cache/*
+.pycache/*
