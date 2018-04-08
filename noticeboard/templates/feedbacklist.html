@@ -15,13 +15,17 @@
     </p>
 
     <table class="table">
-        <tr><th>Id</th><th>Name</th></tr>
+        <tr><th>Id</th><th>제목</th><th>성별</th><th>이름</th><th>나이</th><th>이메일</th></tr>
         {% for item in feedbacks %}
             <tr>
                 <td>
                     <a href="{% url 'edit' id=item.id %}">{{ item.id }}</a>
                 </td>
-                <td>{{ item.product }}</td>
+                <td>{{ item.title }}</td>
+                <td>{{ item.gender }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.age }}</td>
+                <td>{{ item.email }}</td>
             </tr>
         {% endfor %}
     </table>
