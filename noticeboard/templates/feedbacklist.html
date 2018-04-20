@@ -3,19 +3,32 @@
 {% load staticfiles %}
 
 {% block title %}
-    <h3>
-        <img src="{% static 'images/note.png' %}" style="width:50px" />
-        Feedback List
-    </h3>
+
 {% endblock title %}
 
 {% block content %}
-    <p>
-        <a href="{% url 'create' %}">+ Create New</a>
-    </p>
 
+<body>
+    <body style="background-color:powderblue;">
+    <div class="video-container">
+        <div class="jetpack-video-wrapper"><span class="embed-youtube" style="text-align:center; display: block;"><iframe width="720" height="450" src="https://www.youtube.com/embed/DoXKOzn-fmU" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe></span>
     <table class="table">
-        <tr><th>Id</th><th>제목</th><th>성별</th><th>이름</th><th>나이</th><th>이메일</th></tr>
+        {% for youtubeList in video %}
+            <tr>
+                <td>
+                    <a href="{% url 'edit' id=item.id %}">{{ item.id }}</a>
+                </td>
+                <td>{{ video.content }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    </div>
+
+    <form action="{% url 'create' %}" style="margin: 0 auto; width:100px;">
+    <input type="submit" value="댓글 남기러가기" />
+    </form>
+
+    <table class="table"style="margin: 0 auto; width:730px;">
         {% for item in feedbacks %}
             <tr>
                 <td>
@@ -29,4 +42,5 @@
             </tr>
         {% endfor %}
     </table>
+
 {% endblock content %}
